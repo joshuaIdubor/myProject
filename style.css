@@ -1,0 +1,155 @@
+/*
+Author: Idubor Joshua Oluwakemi
+Content: Project Bank Layout
+Date of Publication: 06-June-2019
+Dept:
+*/
+ 
+/*Removing all the basic styles of the navigation links*/
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+/*Make the navigation links appear next to each other and add background color*/
+nav{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 8vh;
+	background-color: #5D4954;
+	font-family: 'Poppins',sans-serif;
+
+}
+
+/*Formatting the appearance of "Project bank"*/
+.logo{
+	color: rgb(226,226,226);
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	font-size: 20px;
+}
+
+/*adjusting the navigations horizontal view */
+.nav-links{
+	display: flex;
+	justify-content: space-around;
+	width: 50%;
+	z-index: 100;
+
+}
+
+/*changing the formatting of navigation fonts*/
+.nav-links li{
+	list-style: none;
+}
+
+/*formatting the font and decoration for the navigation links */
+.nav-links a{
+	color: rgb(226,226,226);
+	text-decoration: none;
+	letter-spacing: 3px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+/*To change the type of cursor when the mouse hovers over the burgers*/
+.burger {
+	display: none;
+	cursor: pointer;
+}
+
+/*formatting the appearance of burgers when page is resized*/
+.burger div{
+	width: 25px;
+	height: 3px;
+	background-color: rgb(226, 226, 226);
+	margin: 5px;
+	transition: all 0.3s ease;
+}
+
+/*setting the position for the background picture for the site*/
+.banner-area {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 61px;
+	background-image: url(background.png);
+	-webkit-background-size: cover;
+	background-position: center center;
+
+}
+
+/*adjusting the letters on the banner area*/
+.banner-area h2{
+	padding-top: 8%;
+	font-size: 30px;
+	font-family: poppins;
+	color: #fff;
+	margin-top: -30px;
+	margin-left: 10px;
+}
+
+
+/*adjusting for small size view for nav links in case of screen resizing*/
+@media screen and (max-width: 1024px){
+	.nav-links{
+		width: 60%;
+
+	}
+}
+
+/*creating a side bar when navigation link gets resized*/
+@media screen and (max-width: 768px){
+	body{
+		overflow-x: hidden;
+	}
+	.nav-links{
+		position: absolute;
+		right: 0px;
+		height: 92vh;
+		top: 8vh;
+		background-color: #5D4954;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 50%;
+		transform: translateX(100%);
+		transition: transform 0.5s ease-in;
+	}
+	.nav-links li{
+		opacity: 0
+	}
+
+	.burger{
+		display: block;
+	}
+}
+/*to get the navigation links to show on the side bar when we click on burger*/
+.nav-active{
+	transform: translateX(0%);
+}
+
+/*make animation for the page side bar with movement when resized*/
+@keyframes navLinkFade{
+	from{
+		opacity: 0;
+		transform: translateX(50px);
+	}
+	to{
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+/*creating the illusion of rotating lines for the burger when it is clicked on*/
+.toggle .line1{
+	transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2{
+	opacity: 0;
+}
+.toggle .line3{
+	transform: rotate(45deg) translate(-5px,-6px);
+}
